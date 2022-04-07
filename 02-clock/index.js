@@ -1,5 +1,5 @@
 const hourHand = document.querySelector('.hour-hand')
-const minuteHand = document.querySelector('.minute-hand')
+const minuteHand = document.querySelector('.min-hand')
 const secondHand = document.querySelector('.second-hand')
 
 const time = new Date()
@@ -33,7 +33,12 @@ function updateSecondHand() {
   // if 30, transform: rotateZ(270deg)
   // if 45, transform: rotateZ(0deg)
   const degree = (90 + second * 6) % 360
-  secondHand.style.transform = `rotate(${degree}deg)`
+  secondHand.style.transform = `rotateZ(${degree}deg)`
+}
+
+function updateMinuteHand() {
+  const degree = (90 + minute * 6 + second * 0.1) % 360
+  minuteHand.style.transform = `rotateZ(${degree}deg)`
 }
 
 setInterval(() => {
@@ -42,5 +47,6 @@ setInterval(() => {
   // reflect CSS accordingly
   // more specifically, update hour, minute, and second hands
   updateSecondHand()
+  updateMinuteHand()
 
 }, 1000)
