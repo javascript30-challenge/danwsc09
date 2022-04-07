@@ -28,16 +28,16 @@ inputs.forEach(input => {
  * - Chrome: 기존 파일이 사라짐 (event.target.files.length = 0)
  */
 
-const image = document.querySelector('img')
+const images = document.querySelector('.images')
 const file = document.getElementById('file')
 let url
 file.addEventListener('input', e => {
-  console.log('e.target.files', e.target.files)
-  if (e.target.files.length > 0) {
-    url = URL.createObjectURL(e.target.files[0])
-    image.setAttribute('src', url)
-    // URL.revokeObjectURL(url)
-  } else if (url) {
-    image.setAttribute('src', '')
+  images.innerHTML = ''
+  for (const file of e.target.files) {
+    const img = document.createElement('img')
+    url = URL.createObjectURL(file)
+    img.src = url
+    img.onload = () => URL.revokeObjectURL(url)
+    images.appendChild(img)
   }
 })
