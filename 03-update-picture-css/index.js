@@ -1,19 +1,11 @@
-// const spacing = document.getElementById('spacing')
-// const blur = document.getElementById('blur')
-// const base = document.getElementById('base')
-
-// console.log(spacing, blur, base)
-
-// spacing.addEventListener('change', e => {
-//   console.log(e)
-//   console.log(e.target.value)
-// })
-
-// spacing.addEventListener('mousemove', e => {
-//   console.log(e.target)
-//   const suffix = e.target.dataset.sizing
-//   document.documentElement.style.setProperty(`--${e.target.name}`, e.target.value + suffix)
-// })
+/*
+  What I learned
+  - Change CSS variable using document.documentElement.style.setProperty(key, value)
+  - Change the scoped value of the CSS variable
+    - For example, above sets the variable (ex. --base) at the <html> element
+    - I can set the value of --base variable in <h1> element
+  - Learned about <input type="range"> and <input type="color">
+*/
 
 function handleUpdate(event) {
   const suffix = event.target.dataset.sizing || ''
