@@ -41,6 +41,11 @@ function updateMinuteHand() {
   minuteHand.style.transform = `rotateZ(${degree}deg)`
 }
 
+function updateHourHand() {
+  const degree = (90 + hour * 30 + minute * 0.5)
+  hourHand.style.transform = `rotateZ(${degree}deg)`
+}
+
 setInterval(() => {
   // update time
   updateTime()
@@ -48,5 +53,6 @@ setInterval(() => {
   // more specifically, update hour, minute, and second hands
   updateSecondHand()
   updateMinuteHand()
+  updateHourHand()
 
 }, 1000)
