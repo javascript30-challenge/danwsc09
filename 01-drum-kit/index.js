@@ -1,3 +1,12 @@
+/*
+  WHAT I LEARNED:
+
+  - transitionend event for transitions
+    - each CSS property that gets changed gets called with e.propertyName
+  - <audio> element methods
+    - play() --> plays audio
+    - currentTime = 0 --> resets time of audio
+*/
 window.addEventListener('keydown', function (event) {
   
   const key = document.querySelector(`.key[data-key=${event.key}]`)
